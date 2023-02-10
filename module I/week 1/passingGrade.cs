@@ -1,7 +1,8 @@
-﻿List<string> studentName = new List<string>();
+﻿
+List<string> studentName = new List<string>();
 List<float> studentNote = new List<float>();
 
-for(int i = 0; i < 5; i++)
+for (int i = 0; i < 5; i++)
 {
     Console.Write("Write the name of " + (i + 1) + "° student: ");
     studentName.Add(Console.ReadLine());
@@ -9,10 +10,9 @@ for(int i = 0; i < 5; i++)
     studentNote.Add(float.Parse(Console.ReadLine()));
 }
 
-// Date structure need be change
-for(int i =0; i < 5; i++)
+for (int i = 0; i < 5; i++)
 {
-    if (studentNote[i] < 7.0)
+    if (studentNote[i] < 6)
     {
         Console.WriteLine(studentName[i] + " student failed.");
     }
