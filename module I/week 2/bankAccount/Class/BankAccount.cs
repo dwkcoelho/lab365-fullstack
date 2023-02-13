@@ -12,10 +12,10 @@ namespace bankAccount.Class
         public int bankNumbers;
         public int agency;
         public string name;
-        public decimal balance = 0;
+        public float balance = 0;
 
         public AccountTypeEnum accountType;
-        public void InsertBalance(decimal value)
+        public void InsertBalance(float value)
         {
             if (value > 0)
             {
@@ -26,7 +26,7 @@ namespace bankAccount.Class
                 Console.WriteLine($"{value} It's invalid value.");
             }
         }
-        public void WithdrawBalance(decimal value)
+        public void WithdrawBalance(float value)
         {
             if (value > 0 & !(value > balance))
             {
