@@ -1,15 +1,13 @@
-﻿using exceptions.Class;
-
-int x = 2;
-int y = 0;
+﻿decimal x = 2;
+decimal y = 0;
 
 try
 {
-    Console.WriteLine($"x / y is equal: {x/y}");
+    Console.WriteLine($"x / y is equal: {x / y}");
 }
 catch (DivideByZeroException exDivideByZero)
 {
-    Console.WriteLine( $"Explanation of the divide by zero error: { exDivideByZero.Message}" );
+    Console.WriteLine($"Explanation of the divide by zero error: {exDivideByZero.Message}");
 }
 catch (ArithmeticException exArithmetic)
 {
