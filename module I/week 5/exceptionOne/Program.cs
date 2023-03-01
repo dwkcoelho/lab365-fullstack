@@ -17,3 +17,9 @@ catch (Exception exGeneral)
 {
     Console.WriteLine($"Catch Error: {exGeneral.Message}");
 }
+finally
+{
+    Console.WriteLine("Closing the program");
+    x = 0;
+    y = 0;
+}
