@@ -1,0 +1,30 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using bankAccounts.Class.Enum;
+
+namespace bankAccounts.Class
+{
+    public class SavingsAccount : BankAccount
+    {
+        public SavingsAccount(int number, int agency, Client client) : base(number, agency, client)
+        {
+            if (client.TypePerson != TypePerson.PHYSICAL)
+            {
+                throw new ArgumentException("Customer needs to be the physical type!");
+            }
+        }
+        public override void WithdrawBalance(decimal value)
+        {
+            value += 0.10M;
+            base.WithdrawBalance(value);
+        }
+        public override void Transfer(BankAccount account, decimal value)
+        {
+            value += 0.05M;
+            base.Transfer(account, value);
+        }
+    }
+}
