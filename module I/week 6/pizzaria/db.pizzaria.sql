@@ -1,0 +1,39 @@
+CREATE DATABASE pizzaria;
+
+CREATE TABLE massa (
+	idMassa INT IDENTITY PRIMARY KEY,
+	tipoMassa VARCHAR(45) NOT NULL
+);
+CREATE TABLE borda (
+	idBorda INT IDENTITY PRIMARY KEY,
+	tipoBordar VARCHAR(45) NOT NULL
+);
+CREATE TABLE sabor (
+	idSabor INT IDENTITY PRIMARY KEY,
+	tipoSabor VARCHAR(45) NOT NULL
+);
+CREATE TABLE estado (
+	idEstado INT IDENTITY PRIMARY KEY,
+	tipoEstado VARCHAR(45) NOT NULL
+);
+CREATE TABLE pedido (
+	idPedido INT IDENTITY PRIMARY KEY,
+	estadoId INT NOT NULL,
+	CONSTRAINT FK_estado FOREIGN KEY (estadoId) REFERENCES estado(idEstado)
+);
+CREATE TABLE pizza (
+	idPizza INT IDENTITY PRIMARY KEY,
+	massaId INT NOT NULL,
+	bordaId INT NOT NULL,
+	CONSTRAINT FK_massa FOREIGN KEY (massaId) REFERENCES massa(idMassa),
+	CONSTRAINT FK_borda FOREIGN KEY (bordaId) REFERENCES borda(idBorda)
+);
+CREATE TABLE pizzaSabores(
+	idPizzaSabores INT IDENTITY PRIMARY KEY,
+	pizzaId INT NOT NULL,
+	saborId INT NOT NULL,
+	pedidoId INT NOT NULL,
+	CONSTRAINT FK_sabor FOREIGN KEY (saborId) REFERENCES sabor(idSabor),
+	CONSTRAINT FK_pizza FOREIGN KEY (pizzaId) REFERENCES pizza(idPizza),
+	CONSTRAINT FK_pedido FOREIGN KEY (pedidoId) REFERENCES pedido(idPedido)
+);
