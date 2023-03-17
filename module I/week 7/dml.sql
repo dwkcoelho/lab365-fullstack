@@ -14,7 +14,7 @@ SET endereco = 'Av. Norte, 350, Recife-PE'
 WHERE id = 2;
 
 /*M1S07 Ex06*/
-SELECT * FROM aluno WHERE idade > 21 AND nome LIKE '%Silva%';
+SELECT * FROM aluno WHERE idade > 21 AND nome_aluno LIKE '%Silva%';
 
 /*M1S07 Ex07*/
 ALTER TABLE aluno ADD data_nascimento DATE;
