@@ -19,6 +19,19 @@ namespace quiz.Models.Configuration
 
             builder.Property(x => x.Observation);
 
+            builder.HasOne(x => x.Question)
+                .WithMany(x => x.Answers)
+                .HasForeignKey(x => x.Question_Id)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Question_Answers");
+
+            builder.HasOne(x => x.Student)
+                .WithMany(x => x.Answers)
+                .HasForeignKey(x => x.Student_Id)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Student_Answers");
+
+
             builder.ToTable("Answer");
         }
     }

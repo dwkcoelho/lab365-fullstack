@@ -13,6 +13,18 @@ namespace quiz.Models.Configuration
 
             builder.Property(x => x.Discipline_Id).IsRequired();
 
+            builder.HasOne(x => x.Student)
+                .WithMany(x => x.Students_Disciplines)
+                .HasForeignKey(x => x.Student_Id)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Student_Student_Discipline") ;
+
+            builder.HasOne(x => x.Discipline)
+                .WithMany(x => x.Student_Disciplines)
+                .HasForeignKey(x => x.Discipline_Id)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Discipline_Student_Discipline");
+
             builder.ToTable("Student_Discipline");
         }
     }

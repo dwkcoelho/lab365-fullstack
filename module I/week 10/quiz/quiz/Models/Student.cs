@@ -8,6 +8,7 @@
         public int Ra { get; set; } 
 
         public virtual User User { get; set; }
-        public virtual ICollection<Student_Discipline> Disciplines { get; set; }
+        public virtual ICollection<Answer> Answers { get; set; }
+        public virtual ICollection<Student_Discipline> Students_Disciplines { get; set; }
     }
 }

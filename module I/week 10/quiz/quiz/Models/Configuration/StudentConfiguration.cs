@@ -15,6 +15,12 @@ namespace quiz.Models.Configuration
 
             builder.Property(x => x.Ra);
 
+            builder.HasOne(x => x.User)
+                .WithMany(x => x.Students)
+                .HasForeignKey(x => x.User_Id)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_User_Students");
+
             builder.ToTable("Student");
         }
 

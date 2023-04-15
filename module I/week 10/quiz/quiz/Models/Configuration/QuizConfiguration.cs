@@ -17,6 +17,12 @@ namespace quiz.Models.Configuration
 
             builder.Property(x => x.Date_Close);
 
+            builder.HasOne(x => x.Discipline)
+                .WithMany(x => x.Quizzes)
+                .HasForeignKey(x => x.Discipline_Id)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Discipline_Quizzes");
+
             builder.ToTable("Quiz");
 
         }
