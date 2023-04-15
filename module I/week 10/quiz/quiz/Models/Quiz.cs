@@ -9,5 +9,6 @@
         public DateTime Date_Close { get; set; }
 
         public virtual Discipline Discipline { get; set; }
+        public virtual ICollection<Question> Questions { get; set; }
     }
 }

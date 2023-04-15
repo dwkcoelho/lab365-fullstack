@@ -8,8 +8,9 @@ namespace quiz.Models.Configuration
         public void Configure(EntityTypeBuilder<Teacher> builder)
         {
             builder.HasKey(x => x.Id);
+            builder.Property(x => x.User_Id);
 
-            builder.HasKey(x => x.Department);
+            builder.Property(x => x.Department);
 
             builder.ToTable("Teacher");
         }

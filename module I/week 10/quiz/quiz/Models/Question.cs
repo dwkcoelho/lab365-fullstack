@@ -8,5 +8,6 @@
         public decimal Weight { get; set; }
 
         public virtual Quiz Quiz { get; set; }
+        public virtual ICollection<Answer> Answers { get; set; }
     }
 }
